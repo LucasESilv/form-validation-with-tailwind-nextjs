@@ -28,7 +28,7 @@ const signUpSchema = z
   });
 
 const Page = () => {
-  const [isSuccess, setIsSuccess] = useState(false); // Estado para controle da mensagem de sucesso
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -40,7 +40,6 @@ const Page = () => {
 
   function onSubmit(values: z.infer<typeof signUpSchema>) {
     console.log(values);
-    // Simulação de sucesso
     setIsSuccess(true);
   }
 

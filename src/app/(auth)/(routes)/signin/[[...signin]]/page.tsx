@@ -82,26 +82,24 @@ const Page = () => {
       values.email === predefinedCredentials.email &&
       values.password === predefinedCredentials.password
     ) {
-      setIsUserAuthenticated(true); // Atualiza o estado para indicar que o usuário está autenticado
+      setIsUserAuthenticated(true);
     } else {
-      setIsUserAuthenticated(false); // Mantém o estado como falso se as credenciais não corresponderem
+      setIsUserAuthenticated(false);
       setTimeout(() => {
-        setIsModalOpen(false); // Fecha o modal de recuperação de senha
-        setIsConfirmationModalOpen(true); // Abre o modal de confirmação
-      }, 1000); // Simula um atraso para demonstração
+        setIsModalOpen(false);
+        setIsConfirmationModalOpen(true);
+      }, 1000);
     }
   }
 
   const handleResetPasswordSubmit = (
     values: z.infer<typeof resetPasswordSchema>
   ) => {
-    // Verifica se o e-mail é válido
     if (predefinedCredentials.email === values.email) {
-      setEmailErrorMessage(""); // Limpa a mensagem de erro
+      setEmailErrorMessage(""); 
       setIsModalOpen(false);
       setIsConfirmationModalOpen(true);
     } else {
-      // Define a mensagem de erro se o e-mail não for encontrado
       setEmailErrorMessage(
         "E-mail inválido. Este Endereço de e-mail não está cadastrado no sistema, verifique ou tente novamente."
       );
@@ -113,7 +111,7 @@ const Page = () => {
       <div className="formWrapper flex flex-col md:flex-row w-full h-full">
         <div className="right w-full md:w-1/2 flex justify-center items-center h-full bg-transparent md:bg-custom-cream order-1 md:order-2">
           <Image
-            src="/assets/Trajeton-Logo-Complete-Stacked.png" // Imagem diferente para mobile
+            src="/assets/Trajeton-Logo-Complete-Stacked.png"
             alt="Descrição da imagem"
             width={150}
             height={150}
@@ -262,7 +260,6 @@ const Page = () => {
         </Dialog.Portal>
       </Dialog.Root>
 
-      {/* Modal de Confirmação */}
       <Dialog.Root
         open={isConfirmationModalOpen}
         onOpenChange={setIsConfirmationModalOpen}
